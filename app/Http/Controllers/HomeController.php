@@ -38,10 +38,10 @@ class HomeController extends Controller
         $this->telegram->initialTelegram();
         
         foreach ($chats as $key => $chat) {
-            $link = Request::exportChatInviteLink([
+            $link = Request::createChatInviteLink([
                 'chat_id' => $chat['id']
             ]);
-            $chats[$key]['link'] = $link->result;
+            $chats[$key]['link'] = $link->result->invite_link;
             
         }
         
